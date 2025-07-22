@@ -1,40 +1,33 @@
 #include <iostream>
+#include <cstdlib>  
+#include <ctime>    
 using namespace std;
 
 int main() {
-    double n1, n2;
-    char op;
+    int secretNumber, guess;
 
-    // Prompt user for input
-    cout << "Enter first number: ";
-    cin >> n1;
+    // Seed the random number generator with the current time
+    srand(static_cast<unsigned int>(time(0)));
 
-    cout << "Enter second number: ";
-    cin >> n2;
+    // Generate a random number between 1 and 100
+    secretNumber = rand() % 100 + 1;
 
-    cout << "Choose an operation (+, -, *, /): ";
-    cin >> op;
+    cout << "ðŸŽ² Welcome to the Number Guessing Game!" << endl;
+    cout << "Guess a number between 1 and 100." << endl;
 
-    // Perform the selected operation
-    switch(op) {
-        case '+':
-            cout << "Result: " << n1 + n2 << endl;
-            break;
-        case '-':
-            cout << "Result: " << n1 - n2 << endl;
-            break;
-        case '*':
-            cout << "Result: " << n1 * n2 << endl;
-            break;
-        case '/':
-            if (n2 != 0)
-                cout << "Result: " << n1 / n2 << endl;
-            else
-                cout << "Error: Division by zero is not allowed." << endl;
-            break;
-        default:
-            cout << "Invalid operation selected!" << endl;
-    }
+    // Game loop
+    do {
+        cout << "Enter your guess: ";
+        cin >> guess;
+
+        if (guess > secretNumber) {
+            cout << "Too high! Try again." << endl;
+        } else if (guess < secretNumber) {
+            cout << "Too low! Try again." << endl;
+        } else {
+            cout << "ðŸŽ‰ Congratulations! You guessed it right!" << endl;
+        }
+    } while (guess != secretNumber);
 
     return 0;
 }
