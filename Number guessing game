@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    double n1, n2;
+    char op;
+
+    // Prompt user for input
+    cout << "Enter first number: ";
+    cin >> n1;
+
+    cout << "Enter second number: ";
+    cin >> n2;
+
+    cout << "Choose an operation (+, -, *, /): ";
+    cin >> op;
+
+    // Perform the selected operation
+    switch(op) {
+        case '+':
+            cout << "Result: " << n1 + n2 << endl;
+            break;
+        case '-':
+            cout << "Result: " << n1 - n2 << endl;
+            break;
+        case '*':
+            cout << "Result: " << n1 * n2 << endl;
+            break;
+        case '/':
+            if (n2 != 0)
+                cout << "Result: " << n1 / n2 << endl;
+            else
+                cout << "Error: Division by zero is not allowed." << endl;
+            break;
+        default:
+            cout << "Invalid operation selected!" << endl;
+    }
+
+    return 0;
+}
